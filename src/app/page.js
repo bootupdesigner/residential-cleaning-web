@@ -1,95 +1,108 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import Header from "../../components/Header";
+import LayoutWrapper from "./layout-client";
+import { API_BASE_URL } from "../../lib/config";
+
+export default function ResidentialCleaning() {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState(null);
+  const [hasHydrated, setHasHydrated] = useState(false);
+
+  // ✅ Avoid hydration mismatch
+  useEffect(() => {
+    setHasHydrated(true);
+  }, []);
+
+  // ✅ Load user info only after hydration
+  useEffect(() => {
+    if (!hasHydrated) return;
+
+    const token = localStorage.getItem("authToken");
+    if (!token) return;
+
+    const fetchUser = async () => {
+      try {
+        const res = await axios.get(`${API_BASE_URL}/api/users/profile`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        setUser(res.data);
+      } catch (error) {
+        console.warn("User fetch failed:", error.message);
+        setUser(null);
+      }
+    };
+
+    fetchUser();
+  }, [hasHydrated]);
+
+  const handleBookingPress = async () => {
+    setIsLoading(true);
+    const token = localStorage.getItem("authToken");
+    router.push(token ? "/booking" : "/signin");
+    setIsLoading(false);
+  };
+
+  if (!hasHydrated) return null;
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    <LayoutWrapper>
+      <div style={styles.container}>
+        <Header back={false} home={false} title={"JMAC Cleaning Services"} booking={false} />
+        <div style={styles.content}>
+          <h2>{user ? `Welcome, ${user.firstName}` : "Welcome to JMAC Cleaning Services"}</h2>
+          <p>
+            Residential cleaning - Houses, apartments, condos, and townhomes. Customize your cleaning experience with JMAC Cleaning Services starting at only $150 for your 1 bedroom / 1 bathroom home.{" "}
+            {user ? "Book your next cleaning today." : "Sign up for an instant quote."}
+          </p>
+          <img
+            src="https://images.pexels.com/photos/4239067/pexels-photo-4239067.jpeg"
+            alt="Cleaning Service"
+            style={styles.image}
+          />
+          {user ? (
+            <button onClick={handleBookingPress} style={styles.button} disabled={isLoading}>
+              {isLoading ? "Loading..." : "Book a Cleaning"}
+            </button>
+          ) : (
+            <div>
+              <button
+                onClick={() => router.push("/signup")}
+                style={{ ...styles.button, backgroundColor: "#28a745" }}
+              >
+                Sign Up
+              </button>
+              <button
+                onClick={() => router.push("/signin")}
+                style={{ ...styles.button, backgroundColor: "blue" }}
+              >
+                Sign In
+              </button>
+            </div>
+          )}
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+    </LayoutWrapper>
   );
 }
+
+const styles = {
+  container: { maxWidth: "800px", margin: "auto", padding: "20px" },
+  content: { padding: "20px", textAlign: "center" },
+  image: { width: "100%", borderRadius: "10px", marginBottom: "20px" },
+  button: {
+    padding: "15px",
+    borderRadius: "5px",
+    color: "white",
+    background: "#007bff",
+    border: "none",
+    cursor: "pointer",
+    margin: "10px 0",
+    width: "100%",
+  },
+};

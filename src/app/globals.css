@@ -40,3 +40,6 @@ a {
     color-scheme: dark;
   }
 }
+ p, strong {
+  font-size: 18px;
+ }
