@@ -191,16 +191,16 @@ function BookingForm({ stripe, elements }) {
     const userId = user?._id || user?.id;
 
     return (
-        <div style={{padding:20, margin: '0px auto 30px auto',}}>
+        <div style={{ padding: 20, margin: '0px auto 30px auto', }}>
+            <Header title="Schedule a Cleaning" booking={false} />
+
             <Form
                 onSubmit={(e) => {
                     e.preventDefault();
                     handlePayment();
                 }}
                 className="p-4"
-                style={{ maxWidth: 600, margin: "auto" }}
-            >
-                <Header title="Schedule a Cleaning" booking={false} />
+                style={{ maxWidth: 600, margin: "auto" }}>
                 <h2 className="mb-4">Book Your Cleaning</h2>
 
                 <Form.Group className="mb-3" controlId="formDate">
@@ -239,7 +239,7 @@ function BookingForm({ stripe, elements }) {
                 <Form.Group className="mb-3">
                     <Form.Label>Add-On Services</Form.Label>
                     {addOnsList
-                        .filter((addOn) => addOn.id !== "ceiling_fan") 
+                        .filter((addOn) => addOn.id !== "ceiling_fan")
                         .map((addOn) => (
                             <Form.Check
                                 key={addOn.id}

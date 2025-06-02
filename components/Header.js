@@ -17,7 +17,19 @@ const Header = ({ back = false, home = false, booking = true, title }) => {
           </button>
         )}
 
-        <Image onClick={() => router.push("/")} src={logo} alt="Logo" width={70} height={70} style={styles.logo} />
+        <button style={{
+          border: "none",
+          cursor: "pointer",
+        }}
+          onClick={() => router.replace("/")} >
+          <Image
+            src={logo}
+            alt="Logo"
+            width={70}
+            height={70}
+            style={styles.logo} 
+            />
+        </button>
 
         {home && (
           <button onClick={() => router.push("/")} style={styles.iconWrapper}>

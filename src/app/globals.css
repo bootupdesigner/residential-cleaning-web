@@ -40,6 +40,30 @@ a {
     color-scheme: dark;
   }
 }
- p, strong {
+ p, strong ,li {
   font-size: 18px;
  }
+
+ .content-frame { 
+  padding: 20; 
+  max-width: 600;
+  align-content: 'center';
+}
+
+.welcomeBackgroundImage {
+  border-radius: 5;
+  background-image: url("https://images.pexels.com/photos/4239067/pexels-photo-4239067.jpeg");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10,
+}
+
+.contentRow {
+   display: flex; 
+   flex-direction: row;
+   flex-wrap: wrap;
+   margin: 0px 10px 10px 10px;
+   justify-content: center;
+   align-items: center;
+}

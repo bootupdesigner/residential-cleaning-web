@@ -6,6 +6,8 @@ import axios from "axios";
 import Header from "../../components/Header";
 import LayoutWrapper from "./layout-client";
 import { API_BASE_URL } from "../../lib/config";
+import WelcomeSection from "../../components/WelcomeSection";
+import CleaningServices from "../../components/CleaningServices";
 
 export default function ResidentialCleaning() {
   const router = useRouter();
@@ -52,57 +54,20 @@ export default function ResidentialCleaning() {
 
   return (
     <LayoutWrapper>
-      <div style={styles.container}>
-        <Header back={false} home={false} title={"JMAC Cleaning Services"} booking={false} />
-        <div style={styles.content}>
-          <h2>{user ? `Welcome, ${user.firstName}` : "Welcome to JMAC Cleaning Services"}</h2>
-          <p>
-            Residential cleaning - Houses, apartments, condos, and townhomes. Customize your cleaning experience with JMAC Cleaning Services starting at only $150 for your 1 bedroom / 1 bathroom home.{" "}
-            {user ? "Book your next cleaning today." : "Sign up for an instant quote."}
-          </p>
-          <img
-            src="https://images.pexels.com/photos/4239067/pexels-photo-4239067.jpeg"
-            alt="Cleaning Service"
-            style={styles.image}
-          />
-          {user ? (
-            <button onClick={handleBookingPress} style={styles.button} disabled={isLoading}>
-              {isLoading ? "Loading..." : "Book a Cleaning"}
-            </button>
-          ) : (
-            <div>
-              <button
-                onClick={() => router.push("/signup")}
-                style={{ ...styles.button, backgroundColor: "#28a745" }}
-              >
-                Sign Up
-              </button>
-              <button
-                onClick={() => router.push("/signin")}
-                style={{ ...styles.button, backgroundColor: "blue" }}
-              >
-                Sign In
-              </button>
-            </div>
-          )}
-        </div>
+      <Header back={false} home={false} title={"JMAC Cleaning Services"} booking={false} />
+      <div style={{ marginBottom: 40 }}>
+        <h2 style={{ textAlign: 'center', }}>{user ? `Welcome, ${user.firstName}` : "Welcome to JMAC Cleaning Services"}</h2>
+       
+        <WelcomeSection
+          router={router}
+          handleBookingPress={handleBookingPress}
+          isLoading={isLoading}
+          user={user}
+        />
+
+        <CleaningServices/>
       </div>
     </LayoutWrapper>
   );
 }
 
-const styles = {
-  container: { maxWidth: "800px", margin: "auto", padding: "20px" },
-  content: { padding: "20px", textAlign: "center" },
-  image: { width: "100%", borderRadius: "10px", marginBottom: "20px" },
-  button: {
-    padding: "15px",
-    borderRadius: "5px",
-    color: "white",
-    background: "#007bff",
-    border: "none",
-    cursor: "pointer",
-    margin: "10px 0",
-    width: "100%",
-  },
-};
