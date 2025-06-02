@@ -13,7 +13,7 @@ function WelcomeSection({ user, router, handleBookingPress ,isLoading}) {
                     
                     <div className='content-frame' style={{
                         borderRadius: "5px",
-                        backgroundColor: "#00000020",
+                        backgroundColor: "#ffffff50",
                         
                     }}>
                         <h3 style={{ textAlign: 'center', }}>House Keeping 7 Days a Week.</h3>
