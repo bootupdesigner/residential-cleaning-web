@@ -39,7 +39,7 @@ function StandardCleaning() {
                                 text='black'>
                                 <Card.Body>
                                     <Card.Title>{surface.title}</Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">Surface Cleaning</Card.Subtitle>
+                                    <Card.Subtitle className="mb-2 text-muted">Surface Cleaning Checklist</Card.Subtitle>
                                     <Card.Text>{surface.description}</Card.Text>
                                 </Card.Body>
                             </Card>
