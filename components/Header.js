@@ -4,12 +4,25 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import logo from "../public/icon.png";
+import { Button } from "react-bootstrap";
 
 const Header = ({ back = false, home = false, booking = true, title }) => {
   const router = useRouter();
 
   return (
-    <header>
+    <>
+      <div style={{ display: 'flex', justifyContent: "space-between", padding: "10px 10px", backgroundColor: 'black', color: 'white', }}>
+        <Button
+          style={{ color: 'white' }}
+          href="mailto:shepardcurtis2@gmail.com"
+          variant='link'>Email Us</Button>
+
+        <Button
+          style={{ color: 'white' }}
+          href="tel:+13057937344"
+          variant='link'>Call a Cleaner</Button>
+      </div>
+
       <div style={styles.headerContainer}>
         {back && (
           <button onClick={() => router.back()} style={styles.iconWrapper}>
@@ -25,10 +38,10 @@ const Header = ({ back = false, home = false, booking = true, title }) => {
           <Image
             src={logo}
             alt="Logo"
-            width={70}
-            height={70}
-            style={styles.logo} 
-            />
+            width={90}
+            height={90}
+            style={styles.logo}
+          />
         </button>
 
         {home && (
@@ -45,7 +58,7 @@ const Header = ({ back = false, home = false, booking = true, title }) => {
         {booking && (<a onClick={() => router.push("/booking")} className="btn btn-outline-success" >Schedule a Cleaning</a>)}
       </div>
 
-    </header>
+    </>
   );
 };
 

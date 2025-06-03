@@ -8,7 +8,7 @@ const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono"
 
 export const metadata = {
   title: "JMAC Cleaning Services",
-  description: "Book and manage your cleanings easily online",
+  description: "Local house cleaning professionals. Dedicated to keeping your house, apartment, or office clean at an affordable cost. Residential deep cleanings, we clean your fans, doors, baseboards, and more. Hire us to do your house keeping for you. Call (305)793-7344 for more information about our home cleaning services.",
 };
 
 export default function RootLayout({ children }) {

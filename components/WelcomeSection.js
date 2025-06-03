@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-function WelcomeSection({ user, router, handleBookingPress ,isLoading}) {
+function WelcomeSection({ user, router, handleBookingPress, isLoading }) {
 
 
     return (
@@ -10,14 +10,15 @@ function WelcomeSection({ user, router, handleBookingPress ,isLoading}) {
             <div className='contentRow'>
 
                 <div className='welcomeBackgroundImage'>
-                    
+
                     <div className='content-frame' style={{
                         borderRadius: "5px",
                         backgroundColor: "#ffffff50",
-                        
+
                     }}>
                         <h3 style={{ textAlign: 'center', }}>House Keeping 7 Days a Week.</h3>
-                        <strong style={{ textAlign: 'center', }}>Same Day Booking Available!</strong>
+                        <p style={{ textAlign: 'center', }}><strong>Same Day Booking Available!</strong></p>
+
                         <ul>
                             <li>Move-in Cleaning</li>
                             <li>Standard Surface Cleaning</li>
@@ -26,7 +27,8 @@ function WelcomeSection({ user, router, handleBookingPress ,isLoading}) {
                             <li>Apartments</li>
                             <li>Offices</li>
                         </ul>
-                        <strong style={{ textAlign: 'center', }} >Servicing Miami-Dade and Broward County</strong>
+                        <p style={{ textAlign: 'center', }}> <strong  >Servicing Miami-Dade and Broward County</strong></p>
+
                     </div>
                 </div>
 

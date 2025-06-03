@@ -7,7 +7,7 @@ import Header from "../../components/Header";
 import LayoutWrapper from "./layout-client";
 import { API_BASE_URL } from "../../lib/config";
 import WelcomeSection from "../../components/WelcomeSection";
-import CleaningServices from "../../components/CleaningServices";
+import DeepCleaning from "../../components/DeepCleaning";
 
 export default function ResidentialCleaning() {
   const router = useRouter();
@@ -65,7 +65,7 @@ export default function ResidentialCleaning() {
           user={user}
         />
 
-        <CleaningServices/>
+        <DeepCleaning/>
       </div>
     </LayoutWrapper>
   );
