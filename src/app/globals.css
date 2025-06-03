@@ -85,3 +85,10 @@ a {
   width:400px; 
   height:400px;
 }
+
+.headerLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}

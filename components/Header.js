@@ -4,7 +4,8 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import logo from "../public/icon.png";
-import { Button } from "react-bootstrap";
+import EmailIcon from '@mui/icons-material/Email';
+import CallIcon from '@mui/icons-material/Call';
 
 const Header = ({ back = false, home = false, booking = true, title }) => {
   const router = useRouter();
@@ -12,16 +13,25 @@ const Header = ({ back = false, home = false, booking = true, title }) => {
   return (
     <>
       <div style={{ display: 'flex', justifyContent: "space-between", padding: "10px 10px", backgroundColor: 'black', color: 'white', }}>
-        <Button
-          style={{ color: 'white' }}
-          href="mailto:shepardcurtis2@gmail.com"
-          variant='link'>Email Us</Button>
 
-        <Button
-          style={{ color: 'white' }}
-          href="tel:+13057937344"
-          variant='link'>Call a Cleaner</Button>
-      </div>
+        <a
+          className="headerLink"
+          href="mailto:shepardcurtis2@gmail.com"
+        >
+          <EmailIcon sx={{ color: "white", fontSize: "24px" }} />
+          <p style={{ fontSize: "20px", color: "white", margin: 0 }}>Email Us</p>
+        </a>
+
+
+
+        <a
+          className="headerLink"
+          href="tel:+13057937344">
+          <CallIcon sx={{ color: "white", fontSize: "24px" }} />
+          <p style={{ fontSize: "20px", color: "white", margin: 0 }}>Call a Cleaner</p>
+        </a>
+
+      </div >
 
       <div style={styles.headerContainer}>
         {back && (
