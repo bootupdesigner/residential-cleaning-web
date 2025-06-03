@@ -55,7 +55,7 @@ export default function ResidentialCleaning() {
   return (
     <LayoutWrapper>
       <Header back={false} home={false} title={"JMAC Residential Cleaning Services"} booking={false} />
-      <div style={{ marginBottom: 40 }}>
+      <div style={{ paddingBottom: '40px' }}>
         <h2 style={{ textAlign: 'center', }}>{user ? `Welcome, ${user.firstName}` : "Welcome to JMAC Cleaning Services"}</h2>
        
         <WelcomeSection

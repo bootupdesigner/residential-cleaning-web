@@ -16,8 +16,8 @@ function WelcomeSection({ user, router, handleBookingPress, isLoading }) {
                         backgroundColor: "#ffffff50",
 
                     }}>
-                        <h3 style={{ textAlign: 'center', }}>House Keeping 7 Days a Week.</h3>
-                        <p style={{ textAlign: 'center', }}><strong>Same Day Booking Available!</strong></p>
+                        <h3 style={{ color:'black', textAlign: 'center', }}>House Keeping 7 Days a Week.</h3>
+                        <p style={{ color:'black', textAlign: 'center', }}><strong>Same Day Booking Available!</strong></p>
 
                         <ul>
                             <li>Move-in Cleaning</li>
@@ -27,14 +27,14 @@ function WelcomeSection({ user, router, handleBookingPress, isLoading }) {
                             <li>Apartments</li>
                             <li>Offices</li>
                         </ul>
-                        <p style={{ textAlign: 'center', }}> <strong  >Servicing Miami-Dade and Broward County</strong></p>
+                        <p style={{ color:'black', textAlign: 'center', }}> <strong  >Servicing Miami-Dade and Broward County</strong></p>
 
                     </div>
                 </div>
 
                 <div>
                     <div className='content-frame'>
-                        <p >
+                        <p style={{ color:'black', }} >
                             Residential cleaning - Houses, apartments, condos, and townhomes. Customize your cleaning experience with JMAC Cleaning Services starting at only $150 for your 1 bedroom / 1 bathroom home.{" "}
                             {user ? "Book your next cleaning today." : "Sign up for an instant quote."}
                         </p>
@@ -69,9 +69,6 @@ function WelcomeSection({ user, router, handleBookingPress, isLoading }) {
 export default WelcomeSection
 
 const styles = {
-    container: { maxWidth: "800px", margin: "auto", padding: "20px" },
-    content: { padding: "20px", textAlign: "center" },
-    image: { width: "100%", borderRadius: "10px", marginBottom: "20px" },
     button: {
         padding: "15px",
         borderRadius: "5px",
