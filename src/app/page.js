@@ -8,6 +8,7 @@ import LayoutWrapper from "./layout-client";
 import { API_BASE_URL } from "../../lib/config";
 import WelcomeSection from "../../components/WelcomeSection";
 import DeepCleaning from "../../components/DeepCleaning";
+import StandardCleaning from "../../components/StandardCleaning";
 
 export default function ResidentialCleaning() {
   const router = useRouter();
@@ -57,15 +58,15 @@ export default function ResidentialCleaning() {
       <Header back={false} home={false} title={"JMAC Residential Cleaning Services"} booking={false} />
       <div style={{ paddingBottom: '40px' }}>
         <h2 style={{ textAlign: 'center', }}>{user ? `Welcome, ${user.firstName}` : "Welcome to JMAC Cleaning Services"}</h2>
-       
+
         <WelcomeSection
           router={router}
           handleBookingPress={handleBookingPress}
           isLoading={isLoading}
           user={user}
         />
-
-        <DeepCleaning/>
+       <StandardCleaning />        
+        <DeepCleaning />
       </div>
     </LayoutWrapper>
   );
