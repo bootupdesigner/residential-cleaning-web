@@ -27,8 +27,14 @@ export const addOns = [
   //   id: 5,
   //   title: `Blinds Dusting`,
   //   description: ``,
+  //   price: "15"
+  // },
+  // {
+  //   id: 6,
+  //   title: `Walls and Doors Cleaning`,
+  //   description: ``,
   //   price: "30"
-  // }
+  // },
 ];
 
 export const SurfaceCleaning = [

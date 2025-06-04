@@ -9,6 +9,7 @@ import { API_BASE_URL } from "../../lib/config";
 import WelcomeSection from "../../components/WelcomeSection";
 import DeepCleaning from "../../components/DeepCleaning";
 import StandardCleaning from "../../components/StandardCleaning";
+import PriceGrid from "../../components/PriceGrid";
 
 export default function ResidentialCleaning() {
   const router = useRouter();
@@ -65,7 +66,10 @@ export default function ResidentialCleaning() {
           isLoading={isLoading}
           user={user}
         />
-       <StandardCleaning />        
+        <StandardCleaning />
+
+        <PriceGrid />
+
         <DeepCleaning />
       </div>
     </LayoutWrapper>
