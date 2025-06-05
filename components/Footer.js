@@ -25,7 +25,7 @@ const Footer = () => {
 
         <div className='row'>
 
-          <div className='list-group list-group-flush col-3 col-md-3 col-sm-12'>
+          <div className='list-group list-group-flush col-12 col-md-12 col-sm-12 col-lg-3'>
 
             <h4 style={{ textDecoration: 'underline' }}>Quick Links</h4>
 
@@ -56,7 +56,7 @@ const Footer = () => {
             }
           </div>
 
-          <div className='list-group list-group-flush col-3 col-md-3 col-sm-12'>
+          <div className='list-group list-group-flush col-12 col-md-12 col-sm-12 col-lg-3'>
 
             <h4 style={{ textDecoration: 'underline', }}>Cleaning Services</h4>
 
@@ -68,7 +68,7 @@ const Footer = () => {
 
           </div>
 
-          <div className='list-group list-group-flush col-3 col-md-3 col-sm-12'>
+          <div className='list-group list-group-flush col-12 col-md-12 col-sm-12 col-lg-3'>
 
             <h4 style={{ textDecoration: 'underline', }}>About JMAC</h4>
 
@@ -78,7 +78,7 @@ const Footer = () => {
 
           </div>
 
-          <div className='list-group list-group-flush col-3 col-md-3 col-sm-12'>
+          <div className='list-group list-group-flush col-12 col-md-12 col-sm-12 col-lg-3'>
 
             <h4 style={{ textDecoration: 'underline', }}>Contact JMAC</h4>
 
