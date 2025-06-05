@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
 import HomeSizeComponent from "../../../components/HomeSizeComponent";
 import { API_BASE_URL } from "../../../lib/config";
+import LayoutWrapper from "../layout-client";
 
 export default function EditHomeSizePage() {
   const router = useRouter();
@@ -81,9 +81,9 @@ export default function EditHomeSizePage() {
   }
 
   return (
-    <>
+    <LayoutWrapper>
       <Header home back title="Edit Home Size" />
-      <div style={{ padding: 20, maxWidth: 800, margin: "auto" }}>
+      <div className="container py-5">
         <HomeSizeComponent homeSize={homeSize} setHomeSize={setHomeSize} />
         <button
           onClick={handleUpdateHomeSize}
@@ -99,7 +99,6 @@ export default function EditHomeSizePage() {
           Update Home Size
         </button>
       </div>
-      <Footer />
-    </>
+    </LayoutWrapper>
   );
 }

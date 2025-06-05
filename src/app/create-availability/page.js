@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import moment from "moment";
 import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
 import { API_BASE_URL } from "../../../lib/config";
 import LayoutWrapper from "../layout-client";
 
@@ -128,7 +127,7 @@ export default function CreateAvailabilityPage() {
   return (
     <LayoutWrapper>
       <Header home back title="Manage Availability" />
-      <div style={{ padding: 20, maxWidth: 800, margin: "auto" }}>
+      <div className="container py-5">
         <h2>📆 Existing Availability</h2>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 20 }}>
           {availableDates.length > 0 ? (
@@ -188,7 +187,6 @@ export default function CreateAvailabilityPage() {
           </button>
         </div>
       </div>
-      <Footer />
     </LayoutWrapper>
   );
 }

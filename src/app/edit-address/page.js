@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
 import { API_BASE_URL } from "../../../lib/config";
 import AddressComponent from "../../../components/AddressComponent";
 import LayoutWrapper from "../layout-client";
@@ -99,7 +98,7 @@ export default function EditAddressPage() {
     return (
         <LayoutWrapper>
             <Header home back title="Edit Address" />
-            <div style={{ padding: 20, maxWidth: 800, margin: "auto" }}>
+            <div className="container py-5">
                 <AddressComponent address={address} setAddress={setAddress} />
                 <button
                     onClick={handleUpdateAddress}
@@ -115,7 +114,6 @@ export default function EditAddressPage() {
                     Update Address
                 </button>
             </div>
-            <Footer />
         </LayoutWrapper>
     );
 }

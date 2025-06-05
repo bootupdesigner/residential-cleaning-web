@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
 import ContactInfoComponent from "../../../components/ContactInfoComponent";
 import { API_BASE_URL } from "../../../lib/config";
 import LayoutWrapper from "../layout-client";
@@ -90,8 +89,8 @@ export default function EditProfilePage() {
 
   return (
     <LayoutWrapper>
-      <Header home back title="Edit Contact Information" />
-      <div style={{ padding: 20, maxWidth: 800, margin: "auto" }}>
+      <Header home back title="Edit User Profile" />
+      <div className="container py-5">
         {contactInfo && (
           <ContactInfoComponent
             contactInfo={contactInfo}
@@ -113,7 +112,6 @@ export default function EditProfilePage() {
           Update Contact Info
         </button>
       </div>
-      <Footer />
     </LayoutWrapper>
   );
 }

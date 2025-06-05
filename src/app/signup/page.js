@@ -78,7 +78,7 @@ if (!hasHydrated) return null;
     return (
         <LayoutWrapper>
             <Header back={true} home={true} title={'Sign Up'} booking={false} />
-            <div style={{padding:20, margin:"0px auto 30px auto"}}>
+            <div className="container py-5">
                 <Form>
                     <ContactInfoComponent contactInfo={contactInfo} setContactInfo={setContactInfo} />
                     <AddressComponent address={address} setAddress={setAddress} />

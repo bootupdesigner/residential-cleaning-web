@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useAuth } from "../lib/useAuth";
-import Header from "./Header";
 import { API_BASE_URL } from "../lib/config";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -56,7 +55,6 @@ export default function SignInForm() {
 
   return (
     <div style={styles.container}>
-      <Header back={true} home={true} booking={false} title="Sign In" />
       <Form style={styles.form}>
         <Form.Group className="mb-3" controlId="formEmail">
           <Form.Label>Email address</Form.Label>

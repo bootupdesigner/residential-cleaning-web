@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect, useState,  } from "react";
+import React, { useEffect, useState, } from "react";
 import LayoutWrapper from "../layout-client";
 import SignInForm from "../../../components/SignInForm";
+import Header from "../../../components/Header";
 
 const SignIn = () => {
   const [hasHydrated, setHasHydrated] = useState(false);
@@ -15,7 +16,9 @@ const SignIn = () => {
 
   return (
     <LayoutWrapper>
-      <div style={{ padding: 20, margin: "0px auto 30px auto" }}>
+      <Header back={true} home={true} booking={false} title="Sign In" />
+
+      <div className="container py-5">
         <SignInForm />
       </div>
     </LayoutWrapper>

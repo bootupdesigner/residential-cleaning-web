@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
 import LayoutWrapper from "../layout-client";
 import { API_BASE_URL } from "../../../lib/config";
 
@@ -102,7 +101,7 @@ export default function AppointmentsPage() {
     return (
         <LayoutWrapper>
             <Header back home title="Appointments" />
-            <div style={{ padding: 20, maxWidth: 800, margin: "auto" }}>
+            <div className="container py-5">
                 {bookings.length === 0 ? (
                     <p style={{ textAlign: "center", color: "#888" }}>No appointments found.</p>
                 ) : (
@@ -128,7 +127,6 @@ export default function AppointmentsPage() {
                     View Previous Appointments
                 </button>
             </div>
-            <Footer />
         </LayoutWrapper>
     );
 }

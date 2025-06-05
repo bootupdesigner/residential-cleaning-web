@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { API_BASE_URL } from "../../../lib/config";
 import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
 import LayoutWrapper from "../layout-client";
 import { Button } from "react-bootstrap";
 
@@ -75,8 +74,8 @@ export default function UserProfilePage() {
 
     return (
         <LayoutWrapper>
-            <Header home back title="Profile" />
-            <div style={{ padding: 20, maxWidth: 800, margin: "20px auto 30px auto" }}>
+            <Header home back booking title="Profile" />
+            <div className="container py-5">
 
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
                     <h2>Welcome, {user.firstName} {user.lastName}</h2>
@@ -153,7 +152,6 @@ export default function UserProfilePage() {
                     </a>
                 </div>
             </div>
-            <Footer />
         </LayoutWrapper >
     );
 }

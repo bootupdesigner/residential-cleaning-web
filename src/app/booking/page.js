@@ -191,9 +191,7 @@ function BookingForm({ stripe, elements }) {
     const userId = user?._id || user?.id;
 
     return (
-        <div style={{ padding: 20, margin: '0px auto 30px auto', }}>
-            <Header title="Schedule a Cleaning" booking={false} />
-
+        <div>
             <Form
                 onSubmit={(e) => {
                     e.preventDefault();
@@ -317,7 +315,10 @@ export default function BookingPage() {
     return (
         <Elements stripe={stripePromise}>
             <LayoutWrapper>
-                <BookingFormWithStripe />
+                <Header title="Schedule a Cleaning" booking={false} />
+                <div className="container">
+                    <BookingFormWithStripe />
+                </div>
             </LayoutWrapper>
         </Elements>
     );

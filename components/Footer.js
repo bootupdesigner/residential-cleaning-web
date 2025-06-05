@@ -33,15 +33,17 @@ const Footer = () => {
             {isLoggedIn ?
               (
                 <>
+                  <Link className='list-group-item bg-dark text-white' style={{ textDecoration: 'none', }} href='/user-profile'>Profile</Link>
+
                   <Link className='list-group-item bg-dark text-white' style={{ textDecoration: 'none', }} href='/booking'>Schedule an Appointment</Link>
 
                   <Link className='list-group-item bg-dark text-white' style={{ textDecoration: 'none', }} href='/appointments'>Upcoming Appointments</Link>
 
-                  <span 
-                  onClick={handleLogout} 
-                  className='list-group-item bg-dark text-white logoutText' >Logout</span>
+                  <span
+                    onClick={handleLogout}
+                    className='list-group-item bg-dark text-white logoutText' >Logout</span>
 
-                  <Link className='list-group-item bg-dark text-white' style={{ textDecoration: 'none', }} href='/user-profile'>Profile</Link>
+
                 </>
               ) : (
                 <>
@@ -95,39 +97,3 @@ const Footer = () => {
 };
 
 export default Footer;
-// <footer style={styles.container}>
-//   {isLoggedIn ? (
-//     <div style={styles.container}>
-//       <Link href="/privacy-policy">Privacy Policy</Link>
-//       <Link href="/user-profile">Profile</Link>
-//       <span onClick={handleLogout} style={styles.logoutText}>Logout</span>
-//     </div>
-//   ) : (
-//     <div style={styles.container}>
-//       <Link href="/privacy-policy">Privacy Policy</Link>
-//       <Link href="/signin">Sign In</Link>
-//     </div>
-//   )}
-// </footer>
-
-const styles = {
-  container: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    padding: "10px 0",
-    alignItems: "center",
-    backgroundColor: "orange",
-    position: "fixed",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    zIndex: 1000,
-  },
-  logoutText: {
-    color: "red",
-    fontWeight: "bold",
-    cursor: "pointer",
-  },
-};

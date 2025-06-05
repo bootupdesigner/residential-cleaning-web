@@ -67,21 +67,22 @@ export default function BookingConfirmedContent() {
 
   return (
     <LayoutWrapper>
-    <div style={styles.container}>
       <Header title="Booking Confirmation" back={false} home={true} />
-      <div style={styles.content}>
-        <h2 style={styles.headerText}>✅ Booking Confirmed</h2>
-        <p style={styles.thankYouText}>Thank you for your booking, {user.firstName}!</p>
-        <div style={styles.detailsContainer}>
-          <h3 style={styles.detailsTitle}>Appointment Details</h3>
-          <Detail label="📍 Address" value={user.serviceAddress} />
-          <Detail label="🗺️ City/State" value={`${user.city}, ${user.state} ${user.zipCode}`} />
-          <Detail label="🏠 Home Type" value={user.homeType?.charAt(0).toUpperCase() + user.homeType?.slice(1)} />
-          <Detail label="📅 Date" value={formattedDate} />
-          <Detail label="⏰ Time" value={formattedTime} />
+
+      <div className='container'>
+        <div style={styles.content}>
+          <h2 style={styles.headerText}>✅ Booking Confirmed</h2>
+          <p style={styles.thankYouText}>Thank you for your booking, {user.firstName}!</p>
+          <div style={styles.detailsContainer}>
+            <h3 style={styles.detailsTitle}>Appointment Details</h3>
+            <Detail label="📍 Address" value={user.serviceAddress} />
+            <Detail label="🗺️ City/State" value={`${user.city}, ${user.state} ${user.zipCode}`} />
+            <Detail label="🏠 Home Type" value={user.homeType?.charAt(0).toUpperCase() + user.homeType?.slice(1)} />
+            <Detail label="📅 Date" value={formattedDate} />
+            <Detail label="⏰ Time" value={formattedTime} />
+          </div>
         </div>
       </div>
-    </div>
     </LayoutWrapper>
   );
 }

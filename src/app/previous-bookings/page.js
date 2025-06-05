@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
 import { API_BASE_URL } from "../../../lib/config";
+import LayoutWrapper from "../layout-client";
 
 export default function PreviousBookingsPage() {
   const router = useRouter();
@@ -72,9 +72,9 @@ export default function PreviousBookingsPage() {
   if (isLoading) return <div style={{ padding: 20 }}>Loading...</div>;
 
   return (
-    <>
-      <Header home back title="Previous Bookings" />
-      <div style={{ padding: 20, maxWidth: 800, margin: "auto" }}>
+    <LayoutWrapper>
+      <Header home back booking title="Previous Bookings" />
+      <div className="container py-5">
         {pastBookings.length === 0 ? (
           <p style={{ textAlign: "center", color: "#888", fontSize: 18 }}>
             No previous appointments found.
@@ -98,8 +98,7 @@ export default function PreviousBookingsPage() {
           ))
         )}
       </div>
-      <Footer />
-    </>
+    </LayoutWrapper>
   );
 }
 

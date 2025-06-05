@@ -11,7 +11,7 @@ const Header = ({ back = false, home = false, booking = true, title }) => {
   const router = useRouter();
 
   return (
-    <>
+    <header>
       <div style={{ display: 'flex', justifyContent: "space-between", padding: "10px 10px", backgroundColor: 'black', color: 'white', }}>
 
         <a
@@ -68,7 +68,7 @@ const Header = ({ back = false, home = false, booking = true, title }) => {
         {booking && (<a onClick={() => router.push("/booking")} className="btn btn-outline-success" >Schedule a Cleaning</a>)}
       </div>
 
-    </>
+    </header>
   );
 };
 
