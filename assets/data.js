@@ -1,3 +1,7 @@
+
+import React from "react";
+import Link from "next/link";
+
 export const addOns = [
   {
     id: 1,
@@ -58,4 +62,39 @@ export const SurfaceCleaning = [
     title: `Living Room and Commmon Areas`,
     description: `Wipe and dust all surfaces and reachable fixtures, including window seals, knobs and handles. Organize couches, sofas, end tables and coffee tables, sweep and mop or vacuum, and remove all trash.`,
   }
+]
+
+function Privacy() {
+  return <a href='/privacy-policy'>privacy</a>
+}
+
+export const steps = [
+  {
+    id: "1",
+    step: `Register`,
+    description: (
+      <>
+        Register to receive the price of your cleaning. We'll use your home size to calculate your price and your address to make sure we have cleaners in your area. Learn more about registering in our{" "} <Link href="/privacy-policy">privacy policy</Link>.
+      </>
+    ),
+  },
+  {
+    id: "2",
+    step: `Schedule an Appointment`,
+    description: (
+      <>
+      Choose a date and time that works for you from our availability calendar. Select your deep cleaning add-ons to meet your cleaning needs. Make a $25 deposit to confirm your booking{" "} <Link href="/terms-of-service">terms of service</Link>.
+      </>
+    ),
+  },
+  {
+    id: "3",
+    step: `Recieve Confirmation`,
+    description: `We’ll send you a confirmation email after booking. You'll be able to access your booking and make changes at anytime.`,
+  },
+  {
+    id: "4",
+    step: `Prepare for your Appointment`,
+    description: `Ensure your space is accessible. We'll take care of the rest.`,
+  },
 ]

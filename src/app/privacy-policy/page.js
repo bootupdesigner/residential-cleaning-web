@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
       <Header back home booking title={'Privacy Police'} />
 
       <div className='container'>
-        <p>Effective Date: [Insert Date]</p>
+        <p>Effective Date: Jan. 1, 2025</p>
         <p>
           This Privacy Policy explains how JMAC Cleaning Services collects, uses,
           and protects your personal information when you use our website and
@@ -41,7 +41,7 @@ export default function PrivacyPolicy() {
         <h2>Your Rights</h2>
         <p>
           You may request access to, or deletion of, your personal data by
-          contacting us at <strong>[Insert Contact Email]</strong>.
+          contacting us at <strong>shepardcurtis2@gmail.com</strong>.
         </p>
 
         <h2>Changes</h2>

@@ -10,6 +10,7 @@ import WelcomeSection from "../../components/WelcomeSection";
 import DeepCleaning from "../../components/DeepCleaning";
 import StandardCleaning from "../../components/StandardCleaning";
 import PriceGrid from "../../components/PriceGrid";
+import HowItWorks from "../../components/HowItWorks";
 
 export default function ResidentialCleaning() {
   const router = useRouter();
@@ -67,6 +68,8 @@ export default function ResidentialCleaning() {
           user={user}
         />
         <StandardCleaning />
+        
+        <HowItWorks />
 
         <PriceGrid />
 

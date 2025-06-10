@@ -47,9 +47,9 @@ const Header = ({ back = false, home = false, booking = true, title }) => {
           onClick={() => router.replace("/")} >
           <Image
             src={logo}
-            alt="Logo"
-            width={90}
-            height={90}
+            alt="JMAC Cleaning Services Logo"
+            width={120}
+            height={120}
             style={styles.logo}
           />
         </button>

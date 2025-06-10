@@ -4,7 +4,7 @@ import React from 'react'
 
 function PriceGrid() {
     return (
-        <div className="container text-center" style={{marginTop:'20px',}}>
+        <div className="container text-center px-5" style={{marginTop:'20px',}}>
 
             <h3>Home Cleaning Prices</h3>
 
