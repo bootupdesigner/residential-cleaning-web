@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from "next/image";
+import toilet from '../public/toilet.jpeg';
 
 
 function WelcomeSection({ user, router, handleBookingPress, isLoading }) {
@@ -19,8 +20,8 @@ function WelcomeSection({ user, router, handleBookingPress, isLoading }) {
                 }}>
 
                     <Image
-                        src="https://images.pexels.com/photos/4239067/pexels-photo-4239067.jpeg"
-                        alt="Welcome background"
+                        src={toilet}
+                        alt="residential home cleaning"
                         fill
                         quality={75}
                         style={{
