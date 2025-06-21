@@ -238,23 +238,21 @@ function BookingForm({ stripe, elements }) {
 
                 <Form.Group className="mb-3">
                     <Form.Label>Add-On Services</Form.Label>
-                    {addOnsList
-                        .filter((addOn) => addOn.id !== "ceiling_fan")
-                        .map((addOn) => (
-                            <Form.Check
-                                key={addOn.id}
-                                type="checkbox"
-                                label={`${addOn.name} (+$${addOn.price})`}
-                                checked={selectedAddOns.includes(addOn.id)}
-                                onChange={() =>
-                                    setSelectedAddOns((prev) =>
-                                        prev.includes(addOn.id)
-                                            ? prev.filter((id) => id !== addOn.id)
-                                            : [...prev, addOn.id]
-                                    )
-                                }
-                            />
-                        ))}
+                    {addOnsList.map((addOn) => (
+                        <Form.Check
+                            key={addOn.id}
+                            type="checkbox"
+                            label={`${addOn.name} (+$${addOn.price})`}
+                            checked={selectedAddOns.includes(addOn.id)}
+                            onChange={() =>
+                                setSelectedAddOns((prev) =>
+                                    prev.includes(addOn.id)
+                                        ? prev.filter((id) => id !== addOn.id)
+                                        : [...prev, addOn.id]
+                                )
+                            }
+                        />
+                    ))}
                 </Form.Group>
 
                 <Form.Check
