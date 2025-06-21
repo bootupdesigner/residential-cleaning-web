@@ -20,7 +20,7 @@ function WelcomeSection({ user, router, handleBookingPress, isLoading }) {
                 }}>
 
                     <Image
-                        src={toilet}
+                        src='https://images.pexels.com/photos/4239067/pexels-photo-4239067.jpeg'
                         alt="residential home cleaning"
                         fill
                         quality={75}
