@@ -7,7 +7,7 @@ export const addOns = [
     id: 1,
     title: `Window Cleaning`,
     description: `Let the light shine through, with our streak free window cleaning add-on. Add window cleaning to your service and recieve an extra shine when you open your blinds.`,
-    price: "15"
+    price: "35"
   },
   {
     id: 2,
@@ -19,13 +19,13 @@ export const addOns = [
     id: 3,
     title: `Ceiling Fans Cleaning`,
     description: `Breathe in the fresh spring air. Cleaning your ceiling fans can help get rid of sinus issues and help you feel more comfortable relaxing around the home.`,
-    price: "10"
+    price: "15"
   },
   {
     id: 4,
     title: `Baseboard Cleaning`,
     description: `Cleaning those lonely and unnoticed baseboard will give your home that extra sparkle it needs to feel extra clean. Start by cleaning one room, or all the rooms for a real deep cleaning.`,
-    price: "60"
+    price: "70"
   },
   // {
   //   id: 5,
@@ -37,7 +37,7 @@ export const addOns = [
   //   id: 6,
   //   title: `Walls and Doors Cleaning`,
   //   description: ``,
-  //   price: "30"
+  //   price: "35"
   // },
 ];
 
