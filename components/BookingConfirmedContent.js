@@ -62,7 +62,14 @@ export default function BookingConfirmedContent() {
   if (!hasHydrated || isLoading) return <p style={{ textAlign: "center" }}>Loading...</p>;
   if (!user) return <p style={{ textAlign: "center", color: "red" }}>User data not found. Please try again.</p>;
 
-  const formattedDate = selectedDate ? new Date(selectedDate).toDateString() : "No Date Selected";
+  const formattedDate = selectedDate
+  ? new Date(`${selectedDate}T00:00:00`).toLocaleDateString(undefined, {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    })
+  : "No Date Selected";
   const formattedTime = selectedTime || "No Time Selected";
 
   return (

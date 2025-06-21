@@ -18,9 +18,11 @@ import Form from 'react-bootstrap/Form';
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 const addOnsList = [
-    { id: "windows", name: "Window Cleaning", price: 10 },
+    { id: "windows", name: "Window Cleaning", price: 35 },
     { id: "stove", name: "Stove/Oven Cleaning", price: 15 },
-    { id: "ceiling_fan", name: "Ceiling Fan Cleaning", price: 5 },
+    { id: "ceiling_fan", name: "Ceiling Fan Cleaning", price: 15 },
+    { id: "baseboards", name: "Baseboards", price: 70 },
+    { id: "doors", name: "Doors", price: 25 },
 ];
 
 function BookingForm({ stripe, elements }) {
@@ -33,16 +35,16 @@ function BookingForm({ stripe, elements }) {
     const [availableTimes, setAvailableTimes] = useState([]);
     const [availableDates, setAvailableDates] = useState([]);
     const [selectedAddOns, setSelectedAddOns] = useState([]);
-    const [ceilingFanCount, setCeilingFanCount] = useState(0);
     const [loading, setLoading] = useState(false);
     const [cardComplete, setCardComplete] = useState(false);
+    const [payInFull, setPayInFull] = useState(false);
 
     const calculateTotal = () => {
         const base = user?.cleaningPrice || 0;
         const addOns = addOnsList
             .filter((a) => selectedAddOns.includes(a.id))
             .reduce((sum, a) => sum + a.price, 0);
-        return base + addOns + ceilingFanCount * 5;
+        return base + addOns;
     };
 
     useEffect(() => {
@@ -155,8 +157,8 @@ function BookingForm({ stripe, elements }) {
                 {
                     userId,
                     selectedAddOns,
-                    ceilingFanCount,
-                    totalPrice,
+                    totalPrice: calculateTotal(),
+                    payInFull,
                 },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -255,16 +257,14 @@ function BookingForm({ stripe, elements }) {
                         ))}
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="ceilingFanCount">
-                    <Form.Label>Ceiling Fans</Form.Label>
-                    <Form.Control
-                        type="number"
-                        value={ceilingFanCount}
-                        onChange={(e) =>
-                            setCeilingFanCount(Math.max(0, parseInt(e.target.value) || 0))
-                        }
-                    />
-                </Form.Group>
+                <Form.Check
+                    type="checkbox"
+                    id="payInFull"
+                    label="Pay Full Amount Now"
+                    checked={payInFull}
+                    onChange={(e) => setPayInFull(e.target.checked)}
+                    className="mb-3"
+                />
 
                 <Form.Group className="mb-3" controlId="cardInfo">
                     <Form.Label>Card Info</Form.Label>
@@ -277,7 +277,10 @@ function BookingForm({ stripe, elements }) {
                     </div>
                 </Form.Group>
 
-                <h4 className="mt-4">Total: ${calculateTotal()}</h4>
+                <h4 className="mt-4">
+                    Total Due Now: ${payInFull ? calculateTotal() : 25}
+                </h4>
+                <p>Total Cleaning Price: ${calculateTotal()}</p>
 
                 <div className="d-grid">
                     <button

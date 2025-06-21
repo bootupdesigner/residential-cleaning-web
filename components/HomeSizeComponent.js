@@ -16,6 +16,11 @@ const HomeSizeComponent = ({ homeSize, setHomeSize }) => {
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
+          <option value="4">5</option>
+          <option value="4">6</option>
+          <option value="4">7</option>
+          <option value="4">8</option>
+          <option value="4">9</option>
         </Form.Select>
       </Form.Group>
 
@@ -29,6 +34,11 @@ const HomeSizeComponent = ({ homeSize, setHomeSize }) => {
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
+          <option value="4">5</option>
+          <option value="4">6</option>
+          <option value="4">7</option>
+          <option value="4">8</option>
+          <option value="4">9</option>
         </Form.Select>
       </Form.Group>
     </>
