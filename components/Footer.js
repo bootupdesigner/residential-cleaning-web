@@ -33,7 +33,7 @@ const Footer = () => {
             {isLoggedIn ?
               (
                 <>
-                  <Link className='list-group-item bg-dark text-white' style={{ textDecoration: 'none', }} href='/user-profile'>Profile</Link>
+                  <Link className='list-group-item bg-dark text-white' style={{ textDecoration: 'none', }} href='/user-profile'>My Account</Link>
 
                   <Link className='list-group-item bg-dark text-white' style={{ textDecoration: 'none', }} href='/booking'>Schedule an Appointment</Link>
 
