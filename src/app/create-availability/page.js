@@ -51,24 +51,31 @@ export default function CreateAvailabilityPage() {
 
   const fetchAllAvailability = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/api/admin/get-availability`, {
+      const res = await axios.get(`${API_BASE_URL}/api/users/profile`, {
         headers: { Authorization: `Bearer ${user.token}` }
       });
-
-      const availability = res.data.availability || {};
+  
+      const availabilityArr = res.data.availability || [];
       const today = moment().format("YYYY-MM-DD");
-
-      const filtered = Object.keys(availability)
-        .filter(date => date >= today)
-        .sort();
-
-      setExistingAvailability(availability);
-      setAvailableDates(filtered);
+  
+      // ✅ Convert array to object: { date: [...times] }
+      const availabilityObj = {};
+      availabilityArr.forEach(({ date, times }) => {
+        if (date >= today) {
+          availabilityObj[date] = times;
+        }
+      });
+  
+      const filteredDates = Object.keys(availabilityObj).sort();
+  
+      setExistingAvailability(availabilityObj);
+      setAvailableDates(filteredDates);
     } catch (error) {
       alert(error.response?.data?.message || "Failed to fetch availability.");
       setExistingAvailability({});
     }
   };
+  
 
   const fetchAvailabilityForDate = () => {
     const formattedDate = moment(selectedDate).format("YYYY-MM-DD");

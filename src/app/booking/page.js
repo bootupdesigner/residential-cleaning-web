@@ -82,14 +82,20 @@ function BookingForm({ stripe, elements }) {
                 const today = new Date();
                 today.setHours(0, 0, 0, 0); // strip time
 
+                console.log("🔹 Availability response:", data);
+
                 const validDates = Object.keys(data).filter((date) => {
-                    const dateObj = new Date(date + "T00:00:00");
-                    return (
-                        Array.isArray(data[date]) &&
-                        data[date].length > 0 &&
-                        dateObj >= today
-                    );
+                    const dateObj = new Date(`${date}T00:00:00`);
+                    const isValidDate = !isNaN(dateObj.getTime());
+                    const isInFuture = dateObj >= today;
+                    const hasAvailableTimes = data[date] && Object.keys(data[date]).length > 0;
+
+                    return isValidDate && isInFuture && hasAvailableTimes;
                 });
+                
+                setAvailability(data);
+                console.log("🔹 Parsed availability keys:", Object.keys(data));
+                
 
                 setAvailableDates(validDates);
             } catch (err) {
@@ -108,11 +114,12 @@ function BookingForm({ stripe, elements }) {
 
     useEffect(() => {
         if (selectedDate && availability[selectedDate]) {
-            setAvailableTimes(availability[selectedDate]);
+            setAvailableTimes(Object.keys(availability[selectedDate])); // ✅ Extract time strings
         } else {
             setAvailableTimes([]);
         }
     }, [selectedDate, availability]);
+
 
     const handlePayment = async () => {
         console.log("🔘 Confirm Booking button clicked");
@@ -174,7 +181,13 @@ function BookingForm({ stripe, elements }) {
 
             await axios.post(
                 `${API_BASE_URL}/api/bookings/book`,
-                { userId, selectedDate, selectedTime, addOns: selectedAddOns },
+                {
+                    userId,
+                    selectedDate,
+                    selectedTime,
+                    addOns: selectedAddOns,
+                    adminId: availability[selectedDate][selectedTime],
+                },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
 
